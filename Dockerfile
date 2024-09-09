@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:2.3.1-cuda11.8-cudnn8-runtime
+FROM paddlepaddle/paddle:3.0.0b1-gpu-cuda11.8-cudnn8.9-trt8.5
 
 ARG http_proxy
 ARG https_proxy
@@ -10,7 +10,6 @@ WORKDIR /app/
 RUN apt-get update && apt-get install -y wget libgl1-mesa-glx libglib2.0-0
 
 RUN pip install magic_pdf[full] -U --extra-index-url https://wheels.myhloli.com
-RUN pip install paddlepaddle-gpu==3.0.0b1 --index-url https://www.paddlepaddle.org.cn/packages/stable/cu118/
 RUN pip install python-dotenv \
     minio \
     loguru \
